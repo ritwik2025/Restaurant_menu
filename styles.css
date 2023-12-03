@@ -1,0 +1,68 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    border:none;
+}
+
+body{
+    min-height:100vh;
+    background-image: url(Images/pexels-lisa-fotios-776538.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color:white;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    font-family: 'Roboto',Arial;
+}
+
+input[type="text"]{
+    padding:10px 20px;
+    font-size:14px;
+    outline:none;
+    border:1px solid rgb(240, 240, 240);    
+}
+
+.wrapper{
+    background-color:rgba(255, 255, 255, 0.95);
+    color:black;
+    padding: 10px 20px;
+    box-shadow:0 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper h2{
+    text-align: center;
+    margin:20px;
+}
+
+.items-list{
+    margin-bottom:20px;
+}
+
+.btn{
+    padding:10px 20px;
+}
+
+.items-list li{
+    list-style-type: none;
+    font-size: 18px;
+    border-bottom:1px solid rgba(0, 0, 0, 0.2);
+    padding:10px;
+}
+
+li input{
+    display: none;
+}
+
+input + label::before {
+    content: "⬜";
+    margin-right: 10px;
+
+}
+
+input:checked + label::before{
+    content:"🍔";
+}
