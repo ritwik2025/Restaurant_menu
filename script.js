@@ -21,7 +21,7 @@ function populateList(items = [], itemList) {
     .map((item, i) => {
       return `
             <li>
-            <input type="checkbox" id="item${i}" ${item.done?'checked':''}/>
+            <input type="checkbox" id="item${i}" data-index=${i} ${item.done?'checked':''}/>
             <label for="item${i}">${item.text}</label>
             </li>
              `;
@@ -29,5 +29,27 @@ function populateList(items = [], itemList) {
     .join("");
 }
 
+
 //When u refresh the page
 populateList(items, itemList);
+
+function toggleDone(e){
+  if (!e.target.matches('input')) return;
+  const index=e.target.dataset.index;
+  items[index].done=!items[index].done;
+  localStorage.setItem('items',JSON.stringify(items));
+  populateList(items, itemsList);
+  ;//only then if done is true it will remain checked
+}
+
+
+itemList.addEventListener('click',toggleDone);
+
+// const inputElements=document.querySelectorAll('input[type="checkbox"]');
+// inputElements.forEach(function(inputElement) {
+//   populateList(items, itemList)
+//   inputElement.addEventListener('click', toggleDone);
+// });
+
+//When u refresh the page
+
